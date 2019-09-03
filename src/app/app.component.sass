@@ -1,0 +1,54 @@
+@import '../assets/sass-tools/main.sass'
+*
+    outline: none
+html, body, figure
+    margin: 0
+    padding: 0
+
+.mask-transition
+    position: fixed
+    top: 0
+    right: 0
+    width: 100%
+    height: 100%
+    background-color: $dark
+    z-index: 99
+    @include transform(scale(0,0))
+    transform-origin: right
+    &.in
+        @include animation(mask 2s cubic-bezier(.81,.22,.43,.64))
+@keyframes mask
+    0%
+        @include transform(scale(0,1))
+        transform-origin: right
+    30%
+        @include transform(scale(1,1))
+        transform-origin: right
+    70%
+        @include transform(scale(1,1))
+        transform-origin: left
+    100%
+        @include transform(scale(0,1))
+        transform-origin: left
+
+body
+    &.light
+        background-color: $light
+        .logo
+            path
+                fill: $dark
+        .menu-call
+            span
+                background-color: $dark
+        .fullscreen svg path, .social svg path
+            fill: $dark
+    &.menu-open
+        .logo
+            path
+                fill: $light
+        .menu-call
+            span
+                background-color: $light
+        .fullscreen svg path, .social svg path
+            fill: $light
+            

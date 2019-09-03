@@ -1,0 +1,25 @@
+@keyframes paragraph
+    0%
+        opacity: 1
+    70%
+        opacity: 1
+    90%
+        opacity: 0
+    100%
+        opacity: 0
+        visibility: hidden
+        
+@keyframes stripeTxt
+    0%
+        transform-origin: left
+        @include transform(scale(0,1))
+    40%
+        transform-origin: left
+        @include transform(scale(1,1))
+    60%
+        transform-origin: right
+        @include transform(scale(1,1))
+    100%
+        transform-origin: right
+        @include transform(scale(0,1))
+        

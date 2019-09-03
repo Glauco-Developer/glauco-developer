@@ -1,0 +1,41 @@
+@import '../../assets/sass-tools/main.sass'
+
+footer
+    position: fixed
+    width: 90%
+    @include transform(translateX(-50%))
+    z-index: 2
+    bottom: 2em
+    left: 50%
+    display: flex
+    justify-content: space-between
+    font-size: 1em
+    line-height: 2em
+    @include transition(all .5s ese-in-out)
+    @media screen and (max-width: 600px)
+        width: 85%
+    &.in
+        .social, .fullscreen
+            opacity: 1
+            @include transform(translateY(0))
+    .social, .fullscreen
+        opacity: 0
+        @include transform(translateY(10%))
+        @include transition(all .5s ease-in-out)
+    .social
+        display: inline-block
+        svg
+            width: 1.5em
+            height: 1.5em
+            margin-right: 2em
+            path
+                @include transition(all .5s ease-in-out)
+    .fullscreen
+        cursor: pointer
+        @media screen and (max-device-width: 1025px)
+            display: none
+        svg
+            width: 2em
+            height: 1.5em
+            path
+                @include transition(all .5s ease-in-out)

@@ -1,0 +1,30 @@
+@mixin transform($transform)
+    -moz-transform: $transform
+    -o-transform: $transform
+    -ms-transform: $transform
+    -webkit-transform: $transform
+    transform: $transform
+@mixin transition($transition)
+    -moz-transition: $transition
+    -o-transition: $transition
+    -ms-transition: $transition
+    -webkit-transition: $transition
+    transition: $transition
+@mixin animation($animation)
+    -moz-animation: $animation
+    -o-animation: $animation
+    -ms-animation: $animation
+    -webkit-animation: $animation
+    animation: $animation
+@mixin text-shadow($arg1, $arg2, $arg3, $arg4 )
+    -moz-text-shadow: $arg1, $arg2, $arg3, $arg4 
+    -o-text-shadow: $arg1, $arg2, $arg3, $arg4 
+    -ms-text-shadow: $arg1, $arg2, $arg3, $arg4 
+    -webkit-text-shadow: $arg1, $arg2, $arg3, $arg4 
+    text-shadow: $arg1, $arg2, $arg3, $arg4 
+@mixin center()
+    position: absolute
+    width: 100px
+    left: 50%
+    top: 50%
+    @include transform(translate(-50%, -50%))

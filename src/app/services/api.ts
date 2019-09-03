@@ -1,0 +1,1 @@
+export const WP_API = 'http://www.glaucodeveloper.com/backend/wp-json/wp/v2'

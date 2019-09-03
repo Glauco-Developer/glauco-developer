@@ -1,0 +1,59 @@
+<div id="message" [ngStyle]="{'background-color': alertMesg === true ? 'green' : 'red' }">
+    <p>{{message}}</p>
+</div>
+<section class="contact-content">
+    <div class="content">
+        <div class="row">
+            <div class="left">
+                <h3 class="subtitle animate">
+                    <span class="text-wrapper">
+                        <span class="letters">contact</span>
+                    </span>
+                </h3>
+            </div>
+            <div class="right">
+                <form [formGroup]="contactForm" (ngSubmit)="submitForm()" novalidate>
+                    <div class="input-field animate">
+                        <app-input label="Name">
+                            <input formControlName="name" type="text" placeholder="Type your name" autocomplete="off">
+                        </app-input>
+                    </div>
+
+                    <div class="input-field animate">
+                        <app-input label="E-mail">
+                            <input formControlName="email" type="text" placeholder="Type your e-mail" autocomplete="off">
+                        </app-input>
+                    </div>
+
+                    <div class="input-field animate">
+                        <app-input label="Message">
+                            <textarea formControlName="message" placeholder="Write your message"></textarea>
+                        </app-input>
+                    </div>
+ 
+                    <div class="form-control input-field animate">
+                      <button type="submit" [disabled]="!contactForm.valid">SEND</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left">
+                <h3 class="subtitle animate">
+                    <span class="text-wrapper">
+                        <span class="letters">social</span>
+                    </span>
+                </h3>
+            </div>
+            <div class="right">
+                <hr class="animate">
+                <ul class="animate">
+                    <li>E-mail: <a href="mailto:glauco.developer@gmail.com">glauco.developer@gmail.com</a></li>
+                    <li>Skype: <a href="skype:glauco.developer?call">glauco.developer</a></li>
+                    <li>Linkedin: <a target="_blank" href="https://www.linkedin.com/in/glauco-raupp-russo-03475b103">glauco-raupp-russo</a></li>
+                    <li>Github: <a target="_blank" href="https://github.com/Glauco-Developer">Glauco-Developer</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

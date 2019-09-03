@@ -1,0 +1,69 @@
+@import '../../assets/sass-tools/main.sass'
+header
+    position: fixed
+    width: 90%
+    @include transform(translateX(-50%))
+    z-index: 6
+    top: 2em
+    left: 50%
+    display: flex
+    justify-content: space-between
+    font-size: 1em
+    line-height: 2em
+    @media screen and (max-width: 600px)
+        width: 85%
+        position: absolute
+    &.in
+        .logo
+            @include transform(scale(1,1))
+        .menu-call
+            &:before, &:after
+                @include transform(scale(1,1))
+    figure
+        margin: 0
+        padding: 0
+    .logo
+        width: 5em
+        @include transition(all .5s ease-in-out)
+        @include transform(scale(0,1))
+        path
+            fill: $light
+            @include transition(all .5s ease-in-out)
+ 
+    .menu-call
+        position: fixed
+        right: 2em
+        top: 2em
+        padding: .3em
+        width: 30px
+        height: 30px
+        cursor: pointer
+        z-index: 4
+        @media screen and (max-width: 600px)
+            top: 1.5em
+        span
+            display: block
+            background-color: $light
+            height: 2px
+            width: 25px
+            padding: 0
+            margin: 6px
+            @include transition(all .8s ease)
+        &:after
+            top: 10px
+            @include transition(all .3s linear)
+        &:before
+            top: 0
+            @include transition(all .3s linear)
+            transform-origin: right
+body
+    &.menu-open
+        .menu-call
+            span.top
+                @include transform(rotate(-140deg))
+            span.middle
+                @include transform(rotate(90deg))
+                opacity: 0
+            span.bottom
+                @include transform(rotate(140deg))
+                margin-top: -16px

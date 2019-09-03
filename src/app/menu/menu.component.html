@@ -1,0 +1,36 @@
+<div class="menu">
+  <!-- <video autoplay loop src="../../assets/images/menu-video.mp4"></video> -->
+  <div class="container" [class.in]="state">
+    <nav>
+      <ul class="main-menu">
+        <li *ngFor="let menuLink of menuLinks" class="titleMenu">
+            <a class="text-wrapper" (click)="closeMenu()" routerLinkActive="active" routerLink="{{menuLink.link}}" title="{{menuLink.text}}">
+                <span class="lettersMenu">{{menuLink.text}}</span>
+              </a>
+            <!-- <span class="text-wrapper">
+                <a class="lettersMenu" (click)="closeMenu()" routerLinkActive="active" routerLink="{{menuLink.link}}" title="{{menuLink.text}}">{{menuLink.text}}</a>
+            </span> -->
+        </li>
+      </ul>
+    </nav>
+    <div class="contacts">
+        <ul class="contacts">
+          <li>
+            <span>Skype</span>
+            Request a call to<br>
+            <a href="skype:glauco.developer?call">glaucodeveloper</a>
+          </li>
+          <li>
+            <span>E-mail</span>
+            Send an email to<br>
+            <a href="">glauco.developer@gmail.com</a>
+          </li>
+          <li>
+            <span>Location</span>
+            Currently living in<br>
+            Dublin, Ireland
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>

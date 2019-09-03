@@ -1,0 +1,274 @@
+@import '../../assets/sass-tools/main.sass'
+
+.background-wrapper
+    background-image: url('../../assets/images/bgmenu.jpg')
+.background-content
+    background-color: rgba(0,0,0,0.3)
+    width: 100%
+    margin: 0 auto
+    padding: 100px 0
+    @media screen and (max-width: 600px)
+        padding: 40px 0 100px 0
+    .content
+        margin: 0 auto
+        width: 60%
+        @media screen and (max-width: 600px)
+            width: 80%
+        .highlight
+            width: 100%
+            margin: 0 auto
+            margin-top: 100px
+            margin-bottom: 100px
+            @media screen and (max-width: 600px)
+                margin-bottom: 0
+            .main-title
+                margin-top: 60px
+                font-family: $ms
+                text-transform: uppercase
+                opacity: 0
+                font-size: 40px
+                text-align: left
+                color: #555 !important
+                font-weight: 800
+                letter-spacing: 1px 
+                @include transition(all .5s ease)
+                @media screen and (max-width: 1600px)
+                    font-size: 45px
+                @media screen and (max-width: 1450px)
+                    font-size: 35px
+                @media screen and (max-width: 1025px)
+                    margin-bottom: 0
+                    font-size: 30px
+                @media screen and (max-width: 769px)
+                    font-size: 23px
+                &.top-title
+                    @media screen and (max-width: 600px)
+                        display: none
+                &.in
+                    opacity: 1
+                .text-wrapper
+                    position: relative
+                    display: inline-block
+                    padding-right: 0.05em
+                    overflow: hidden
+                    .letter
+                        transform-origin: 0 100%
+                        display: inline-block
+                        text-align: left
+                        color: #555
+        hr
+            height: 0
+            padding: 0
+            margin: 10px 0 50px 0
+            width: 0
+            opacity: .3
+            border: .5px solid rgba(255,255,255,0.1)
+            @include transition(all .5s 1s ease-in-out)
+            &.fadeIn
+                width: 90%
+        p
+            font-size: 24px
+            line-height: 40px
+            font-weight: 300
+            opacity: 0
+            @include transform(translateX(-20px))
+            @include transition(all 1s .5s ease-in-out)
+            @media screen and (max-width: 1025px)
+                font-size: 17px
+            @media screen and (max-width: 600px)
+                font-size: 14px
+                line-height: 30px
+            &.in
+                opacity: 1
+                @include transform(translateX(0))
+        .row
+            display: flex
+            justify-content: flex-start
+            color: $light
+            font-family: $ms
+            font-size: 14px
+            font-weight: 400
+            margin: 40px 0
+            @media screen and (max-width: 769px)
+                flex-direction: column
+            .left
+                padding-top: 60px
+                width: 30%
+                @media screen and (max-width: 769px)
+                    padding-top: 0
+                    width: 100%
+            .right
+                width: 70%
+                @media screen and (max-width: 769px)
+                    width: 100%
+            strong
+                font-weight: 400
+                color: #747474
+            a
+                color: $light
+                margin-left: 10px
+                opacity: .7
+                @media screen and (max-width: 1025px)
+                    margin-left: 0
+                    display: block
+                    margin-top: 5px
+                &:hover
+                    &:before
+                        width: 100%
+                &:before
+                    content: ""
+                    position: absolute
+                    left: 0
+                    bottom: -1px
+                    background-color: $light
+                    height: 1px
+                    width: 0
+                    z-index: 9
+                    @include transition(all .5s ease-in-out)
+                    @media screen and (max-width: 769px)
+                        content: none
+            h3
+                margin: 0
+                font-family: $ms
+                text-transform: uppercase
+                opacity: 0
+                @include transition(all .5s ease)
+                &.in
+                    opacity: 1
+                &.fadeIn
+                    opacity: 1
+                &.first
+                    position: relative
+                    margin: 0
+                    margin-top: 35px
+                .text-wrapper
+                    position: relative
+                    display: inline-block
+                    padding-top: 0.2em
+                    padding-right: 0.05em
+                    padding-bottom: 0.1em
+                    overflow: hidden
+                    .letter
+                        font-size: 20px
+                        font-weight: 700
+                        color: $light
+                        transform-origin: 0 100%
+                        display: inline-block
+                        @media screen and (max-width: 1025px)
+                            font-size: 17px
+                        @media screen and (max-width: 769px)
+                            font-size: 15px
+            ul
+                margin: 0
+                padding: 0
+                list-style: none
+                &.fadeIn
+                    li
+                        opacity: 1
+                        @include transform(translateX(0))
+                        &:before
+                            @include animation(paragraph 1s 1s linear forwards)
+                @for $i from 0 to 10
+                    li:nth-child(#{$i})
+                        transition-delay: (($i * .10s))
+                li
+                    position: relative
+                    display: block
+                    margin: 20px 0
+                    opacity: 0
+                    width: fit-content
+                    @include transform(translateX(-20px))
+                    @include transition(all .5s 1s ease-in)
+                    &:before
+                        content: ""
+                        background-color: #444
+                        width: calc(100% + 20px)
+                        height: 100%
+                        left: -10px
+                        position: absolute
+                        z-index: 9
+.images-grid
+    position: relative
+    width: 100%
+    z-index: 1
+    margin: 0 auto
+    .horizontal-line
+        opacity: .3
+        position: absolute
+        width: 1px
+        height: 50px
+        width: 80%
+        height: 1px
+        left: 5%
+        top: 25%
+        background-color: rgba(255,255,255,0.1)
+        @media screen and (max-width: 600px)
+            display: none
+        &.second
+            top: 50%
+        &.third
+            top: 75%
+    .vertical-line
+        opacity: .3
+        position: absolute
+        width: 1px
+        height: 100%
+        left: 23%
+        background-color: rgba(255,255,255,0.1)
+        @media screen and (max-width: 600px)
+            display: none
+        &.second
+            left: 45%
+        &.third
+            left: 67%
+    .row
+        width: 90%
+        display: flex
+        justify-content: flex-start
+        flex-wrap: wrap
+        margin: 0 auto
+        @for $i from 0 to 10
+            figure:nth-child(#{$i})
+                transition-delay: (($i * .10s))
+        @media screen and (max-width: 600px)
+            flex-direction: column
+        &.skills
+            @media screen and (max-width: 769px)
+                flex-direction: row
+        figure
+            text-align: center
+            padding: 4%
+            width: 25%
+            box-sizing: border-box
+            opacity: 0
+            display: flex
+            flex-direction: column
+            justify-content: center
+            @include transform(scale(0))
+            @include transition(all .5s ease-in-out)
+            @media screen and (max-width: 600px)
+                width: 50%
+                padding: 6%
+            &.fadeIn
+                opacity: 1
+                @include transform(scale(1))
+            img
+                max-width: 60px
+                max-height: 40px
+                filter: grayscale(100%)
+                margin: 0 auto
+                @include transition(all .5s ease-in-out)
+                @media screen and (max-width: 1025px)
+                    max-width: 50px
+                    max-height: 40px
+                &:hover
+                    filter: grayscale(0)
+            figcaption
+                font-family: $ms
+                font-size: 13px
+                text-align: center
+                margin-top: 15px
+                color: $light
+                font-weight: 400
+                @media screen and (max-width: 1025px)
+                    display: none
