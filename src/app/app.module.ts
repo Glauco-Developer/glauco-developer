@@ -20,7 +20,7 @@ import { BackgroundComponent } from './background/background.component';
 import { CaseComponent } from './projects/case/case.component';
 import { ContactComponent } from './contact/contact.component';
 import { IntegrationService } from './services/integration.service';
-import { FirebaseDbService } from './services/firebase-db.service';
+import { DashboardComponent } from './restrict/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +33,8 @@ import { FirebaseDbService } from './services/firebase-db.service';
     ProjectsComponent,
     BackgroundComponent,
     ContactComponent,
-    InputComponent
+    InputComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,7 @@ import { FirebaseDbService } from './services/firebase-db.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [IntegrationService, FirebaseDbService],
+  providers: [IntegrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

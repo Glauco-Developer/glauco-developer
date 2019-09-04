@@ -7,6 +7,7 @@ import { BackgroundComponent } from './background/background.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { CaseComponent } from './projects/case/case.component'
 import { ContactComponent } from './contact/contact.component';
+import { DashboardComponent } from './restrict/dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'background', component: BackgroundComponent, data: {animation: 'transition'} },
   { path: 'projects', component: ProjectsComponent, data: {animation: 'transition'} },
   { path: 'contact', component: ContactComponent, data: {animation: 'transition'} },
+  { path: 'dashboard', component: DashboardComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

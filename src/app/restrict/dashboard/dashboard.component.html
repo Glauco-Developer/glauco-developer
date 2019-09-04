@@ -1,0 +1,8 @@
+<p *ngIf="loadedData.length < 1">You don't have any messages.</p>
+<ul *ngIf="loadedData.length >= 1">
+  <li *ngFor="let data of loadedData">
+    <h2>{{data.name}}</h2>
+    <span>{{data.email}}</span>
+    <p>{{data.message}}</p>
+  </li>
+</ul>

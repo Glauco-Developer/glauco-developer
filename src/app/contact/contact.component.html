@@ -12,7 +12,7 @@
                 </h3>
             </div>
             <div class="right">
-                <form [formGroup]="contactForm" (ngSubmit)="submitForm()" novalidate>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()" novalidate>
                     <div class="input-field animate">
                         <app-input label="Name">
                             <input formControlName="name" type="text" placeholder="Type your name" autocomplete="off">

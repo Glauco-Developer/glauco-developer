@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { fader } from './router-animations';
 import * as firebase from 'firebase/app'
@@ -12,14 +12,10 @@ import { environment } from '../environments/environment'
   animations: [fader]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent{
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData;
-  }
-
-  ngOnInit() {
-    firebase.initializeApp(environment.firebaseConfig)
   }
 
 }

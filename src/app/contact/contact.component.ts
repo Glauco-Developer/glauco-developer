@@ -18,9 +18,10 @@ export class ContactComponent implements OnInit {
   message : string = '';
   alertMesg: boolean;
 
-  constructor(private fb: FormBuilder, private firebaseDbService: FirebaseDbService) { }
+  constructor(private fb: FormBuilder, private firebase: FirebaseDbService) { }
 
   ngOnInit() {
+
     this.body = document.querySelector('body')
     setTimeout(() => this.body.classList.add('in'), 500)
     setTimeout(() => this.body.classList.add('light'), 500)
@@ -43,7 +44,6 @@ export class ContactComponent implements OnInit {
     })
 
     setTimeout(() => {
-
       $(".animate").each(function(i, el) {
         var el = $(el);
         el.addClass("fadeIn");            
@@ -60,8 +60,6 @@ export class ContactComponent implements OnInit {
           }) 
           el.removeClass("subtitle");
       });  
-
-
       this.state = true
       anime.timeline({loop: false})
       .add({
@@ -75,30 +73,36 @@ export class ContactComponent implements OnInit {
         delay: (el, i) => 50 * i
       }) 
     },2000)
-
+    
   }
 
-  submitForm(){
-    this.firebaseDbService.sendForm({
+  onSubmitForm(){
+    this.firebase.sendForm({
       name: this.contactForm.value.name,
       email: this.contactForm.value.email,
       message: this.contactForm.value.message
-    }).then((res) => {
-      this.alertMesg = true;
-      this.message = 'Message successfully submited. Thank you!'
-      document.querySelector('#message').classList.add('show')
-      setTimeout(() => {
-        document.querySelector('#message').classList.remove('show')
-      }, 4000)
-    }).catch((error: Error) => {
-      this.alertMesg = false;
-      this.message = 'An error ocurred, try again.'
-      document.querySelector('#message').classList.add('show')
-      setTimeout(() => {
-        document.querySelector('#message').classList.remove('show')
-      }, 4000)
+    }).subscribe(resp => {
+      console.log(resp)
     })
-    
+    // this.firebase.sendForm({
+    //   name: this.contactForm.value.name,
+    //   email: this.contactForm.value.email,
+    //   message: this.contactForm.value.message
+    // }).then((res) => {
+    //   this.alertMesg = true;
+    //   this.message = 'Message successfully submited. Thank you!'
+    //   document.querySelector('#message').classList.add('show')
+    //   setTimeout(() => {
+    //     document.querySelector('#message').classList.remove('show')
+    //   }, 4000)
+    // }).catch((error: Error) => {
+    //   this.alertMesg = false;
+    //   this.message = 'An error ocurred, try again.'
+    //   document.querySelector('#message').classList.add('show')
+    //   setTimeout(() => {
+    //     document.querySelector('#message').classList.remove('show')
+    //   }, 4000)
+    // })
   }
 
   ngOnDestroy()	{
