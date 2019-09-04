@@ -14,48 +14,6 @@
         width: 60%
         @media screen and (max-width: 600px)
             width: 80%
-        .highlight
-            width: 100%
-            margin: 0 auto
-            margin-top: 100px
-            margin-bottom: 100px
-            @media screen and (max-width: 600px)
-                margin-bottom: 0
-            .main-title
-                margin-top: 60px
-                font-family: $ms
-                text-transform: uppercase
-                opacity: 0
-                font-size: 40px
-                text-align: left
-                color: #555 !important
-                font-weight: 800
-                letter-spacing: 1px 
-                @include transition(all .5s ease)
-                @media screen and (max-width: 1600px)
-                    font-size: 45px
-                @media screen and (max-width: 1450px)
-                    font-size: 35px
-                @media screen and (max-width: 1025px)
-                    margin-bottom: 0
-                    font-size: 30px
-                @media screen and (max-width: 769px)
-                    font-size: 23px
-                &.top-title
-                    @media screen and (max-width: 600px)
-                        display: none
-                &.in
-                    opacity: 1
-                .text-wrapper
-                    position: relative
-                    display: inline-block
-                    padding-right: 0.05em
-                    overflow: hidden
-                    .letter
-                        transform-origin: 0 100%
-                        display: inline-block
-                        text-align: left
-                        color: #555
         hr
             height: 0
             padding: 0
@@ -102,9 +60,17 @@
                 @media screen and (max-width: 769px)
                     width: 100%
             strong
+
                 font-weight: 400
                 color: #747474
+                margin-left: 10px
+                opacity: .7
+                @media screen and (max-width: 1025px)
+                    margin-left: 0
+                    display: block
+                    margin-top: 5px
             a
+                position: relative
                 color: $light
                 margin-left: 10px
                 opacity: .7
@@ -140,7 +106,7 @@
                 &.first
                     position: relative
                     margin: 0
-                    margin-top: 35px
+                    margin-top: -30px
                 .text-wrapper
                     position: relative
                     display: inline-block
