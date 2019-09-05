@@ -1,6 +1,6 @@
 @import '../../assets/sass-tools/main.sass'
 body
-    background-color: #080808
+    background-color: $dark
     &.menu-open
         .copy
             opacity: 0
@@ -23,32 +23,24 @@ body
     opacity: 0
     font-family: $ms
     color: $light
-    @include transform(translate(-50%,-50%))
+    @include transform(translate(-50%,-40%))
     @include transition(all .5s ease-in-out)
     @media screen and (max-width: 700px)
-        max-width: 240px
         font-style: normal
     &.in
         opacity: 1
+        @include transform(translate(-50%,-50%))
     .title
         position: relative
         font-weight: 700
         margin: 0
         text-transform: uppercase
-        font-size: 57px
-        .text-wrapper
-            position: relative
-            display: inline-block
-            padding-top: 0.2em
-            padding-right: 0.05em
-            padding-bottom: 0.1em
-            letter-spacing: -1px
-            overflow: hidden
-            .letter
-                transform-origin: 0 100%
-                display: inline-block
-                line-height: 1em
-                color: $light
+        font-size: 37px
+        line-height: 50px
+        @media screen and (max-width: 600px)
+            font-size: 26px
+            line-height: 40px
+            text-align: left
     h2
         position: relative
         font-size: 16px
@@ -58,7 +50,9 @@ body
         display: inline-block
         @include transition(color 0s 1.4s)
         @media screen and (max-width: 600px)
-            font-size: 13px
+            text-align: left
+            font-size: 16px
+            line-height: 30px
         &:before
             content: ''
             position: absolute

@@ -1,19 +1,6 @@
 @import '../../assets/sass-tools/main.sass'
 #message
-    text-align: center
-    background-color: $dark2
-    padding: 10px 0
-    position: fixed
-    top: -100px
-    left: 0
-    color: $light
-    font-family: $ms
-    font-size: 14px
-    font-weight: 400
-    width: 100%
-    @include transition(all .5s linear)
-    &.show
-        top: 0
+    @include errorMessages()
 
 .contact-content
     background-color: $light

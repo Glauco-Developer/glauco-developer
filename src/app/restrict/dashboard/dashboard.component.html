@@ -1,8 +1,15 @@
-<p *ngIf="loadedData.length < 1">You don't have any messages.</p>
-<ul *ngIf="loadedData.length >= 1">
+<div id="message" *ngIf="error">
+  {{error}}
+</div>
+
+<p *ngIf="loadedData.length < 1 && !isLoading">You don't have any messages.</p>
+<ul *ngIf="loadedData.length >= 1 && !isLoading">
   <li *ngFor="let data of loadedData">
     <h2>{{data.name}}</h2>
     <span>{{data.email}}</span>
     <p>{{data.message}}</p>
   </li>
 </ul>
+<p *ngIf="isLoading && !error">Loading...</p>
+<button (click)="onFetchForm()">Fetch</button>
+<button (click)="onClearForm()" [disabled]="loadedData.length < 1">Clear</button>

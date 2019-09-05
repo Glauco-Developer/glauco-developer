@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import anime from 'animejs/lib/anime.es.js';
 import * as $ from 'jquery';
+declare var particlesJS: any;
 
 @Component({
   selector: 'app-background',
@@ -15,6 +16,11 @@ export class BackgroundComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    particlesJS.load('particles-js', '../../assets/particles2.json', function() {
+      console.log('callback - particles-js config loaded');
+    });
+
 
     $.fn.visible = function(partial) {    
       var $t            = $(this),

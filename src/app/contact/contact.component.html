@@ -1,5 +1,5 @@
-<div id="message" [ngStyle]="{'background-color': alertMesg === true ? 'green' : 'red' }">
-    <p>{{message}}</p>
+<div id="message" *ngIf="feedbackMessage" [ngStyle]="{'background-color': submissionState === 'sent' ? 'green' : 'red'}">
+    {{feedbackMessage}}
 </div>
 <section class="contact-content">
     <div class="content">

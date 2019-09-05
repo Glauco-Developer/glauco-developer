@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
 
     this.showPageData(this.page)
 
-    this.state = true;
+    setTimeout(() => {this.state = true},1500)
   }
  
 

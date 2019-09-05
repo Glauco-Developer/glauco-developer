@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseDbService } from '../../services/firebase-db.service';
 import { map } from 'rxjs/operators';
+import { from } from 'rxjs';
 import { ContactFormModel } from '../../contact/contact-form.model';
 
 @Component({
@@ -11,26 +12,31 @@ import { ContactFormModel } from '../../contact/contact-form.model';
 export class DashboardComponent implements OnInit {
 
   loadedData: ContactFormModel[] = [];
+  isLoading: boolean = false;
+  error = null;
 
   constructor(private firebase: FirebaseDbService) { }
 
   ngOnInit() {
-    this.onFetchForm()
+    this.onFetchForm();
   }
 
-  private onFetchForm() {
-    this.firebase.fetchContactData()
-    .pipe(map(responseData => {
-      const dataArray: ContactFormModel[] = [];
-      for(const key in responseData) {
-        if(responseData.hasOwnProperty(key)) {
-          dataArray.push({...responseData[key], id: key})
-        }
+  onFetchForm() {
+    this.isLoading = true;
+    this.firebase.fetchContact().subscribe(
+      data => {
+        this.isLoading = false;
+        this.loadedData = data;
+      }, error => {
+        this.error = error.error.error
+        console.log(error)
       }
-      return dataArray;
-    }))
-    .subscribe(data => {
-      this.loadedData = data;
+    )    
+  }
+
+  onClearForm() {
+    this.firebase.clearData().subscribe(() => {
+      this.loadedData = [];
     })
   }
 

@@ -16,7 +16,10 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   state: boolean = false
   message : string = '';
-  alertMesg: boolean;
+
+  isLoading: boolean = false;
+  feedbackMessage = null;
+  submissionState: string = null;
 
   constructor(private fb: FormBuilder, private firebase: FirebaseDbService) { }
 
@@ -77,33 +80,23 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmitForm(){
-    this.firebase.sendForm({
+    this.firebase.createAndStoreContact({
       name: this.contactForm.value.name,
       email: this.contactForm.value.email,
       message: this.contactForm.value.message
-    }).subscribe(resp => {
-      console.log(resp)
-    })
-    // this.firebase.sendForm({
-    //   name: this.contactForm.value.name,
-    //   email: this.contactForm.value.email,
-    //   message: this.contactForm.value.message
-    // }).then((res) => {
-    //   this.alertMesg = true;
-    //   this.message = 'Message successfully submited. Thank you!'
-    //   document.querySelector('#message').classList.add('show')
-    //   setTimeout(() => {
-    //     document.querySelector('#message').classList.remove('show')
-    //   }, 4000)
-    // }).catch((error: Error) => {
-    //   this.alertMesg = false;
-    //   this.message = 'An error ocurred, try again.'
-    //   document.querySelector('#message').classList.add('show')
-    //   setTimeout(() => {
-    //     document.querySelector('#message').classList.remove('show')
-    //   }, 4000)
-    // })
-  }
+    }).subscribe(
+      data => {
+        this.feedbackMessage = "Your message has been successfully submited.";
+        this.submissionState = 'sent';
+        setTimeout(() => {this.feedbackMessage = null},5000)
+      }, error => {
+        this.feedbackMessage = error.error.error
+        this.submissionState = 'error';
+        setTimeout(() => {this.feedbackMessage = null},5000)
+      }
+    ) 
+
+  }  
 
   ngOnDestroy()	{
     this.body.classList.remove('in');

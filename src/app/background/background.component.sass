@@ -1,7 +1,13 @@
 @import '../../assets/sass-tools/main.sass'
-
+#particles-js
+    position: fixed
+    z-index: 0
+    width: 100%
+    height: 100%
+    left: 0
+    top: 0
 .background-wrapper
-    background-image: url('../../assets/images/bgmenu.jpg')
+    background-color: $dark
 .background-content
     background-color: rgba(0,0,0,0.3)
     width: 100%
@@ -138,7 +144,7 @@
                             @include animation(paragraph 1s 1s linear forwards)
                 @for $i from 0 to 10
                     li:nth-child(#{$i})
-                        transition-delay: (($i * .10s))
+                        transition-delay: (($i * .5s))
                 li
                     position: relative
                     display: block
@@ -220,10 +226,12 @@
             &.fadeIn
                 opacity: 1
                 @include transform(scale(1))
+                img
+                    filter: grayscale(100%)
             img
                 max-width: 60px
                 max-height: 40px
-                filter: grayscale(100%)
+                filter: grayscale(0)
                 margin: 0 auto
                 @include transition(all .5s ease-in-out)
                 @media screen and (max-width: 1025px)
