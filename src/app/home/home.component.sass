@@ -1,6 +1,6 @@
 @import '../../assets/sass-tools/main.sass'
 body
-    background-color: $dark
+    background-color: #080808
     &.menu-open
         .copy
             opacity: 0
@@ -23,13 +23,11 @@ body
     opacity: 0
     font-family: $ms
     color: $light
-    font-size: 1.5em
     @include transform(translate(-50%,-50%))
     @include transition(all .5s ease-in-out)
     @media screen and (max-width: 700px)
         max-width: 240px
         font-style: normal
-        font-size: 13px
     &.in
         opacity: 1
     .title
@@ -37,13 +35,14 @@ body
         font-weight: 700
         margin: 0
         text-transform: uppercase
+        font-size: 57px
         .text-wrapper
             position: relative
             display: inline-block
             padding-top: 0.2em
             padding-right: 0.05em
             padding-bottom: 0.1em
-            letter-spacing: 1px
+            letter-spacing: -1px
             overflow: hidden
             .letter
                 transform-origin: 0 100%
@@ -74,5 +73,3 @@ body
             color: #bbbbbb
             &:before
                 @include animation(stripeTxt .6s 1s ease forwards)
-#particles-js
-    opacity: .5

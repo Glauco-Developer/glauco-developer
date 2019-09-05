@@ -45,7 +45,7 @@ body
     height: 100%
     z-index: 4
     pointer-events: none
-    background-color: $dark
+    background-color: $light
     // background-image: url('../../assets/images/bgmenu.jpg')
     font-family: $ms
     opacity: 0
@@ -107,7 +107,7 @@ body
                     text-decoration: none
                     font-weight: 700
                     letter-spacing: -.5px
-                    @include text-shadow(-1px 0 white, 0 1px white, 1px 0 white, 0 -1px white)
+                    @include text-shadow(-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black)
                     color: $light
                     margin: 0
                     @media screen and (max-width: 1025px)
@@ -140,7 +140,7 @@ body
             flex-direction: column
             justify-content: center
             width: 30%
-            color: $light
+            color: $dark
             @media screen and (max-width: 769px)
                 width: 70%
                 position: relative
@@ -174,25 +174,23 @@ body
                         top: 9%
                         height: 85%
                         width: 2px
-                        background-color: $light
+                        background-color: $dark
                         @media screen and (max-width: 600px)
                             content: none
                     span
                         text-transform: uppercase
                         display: block
-                        color: #bbbbbb
+                        color: $dark2
                         font-family: $ms
                         font-size: .877em
                         line-height: 3em
                     a
                         position: relative
-                        color: $light
+                        color: $dark
                         text-decoration: none
                         line-height: 30px
-                        opacity: .7
                         @include transition(all .5s ease-in-out)
                         &:hover
-                            opacity: 1
                             &:before
                                 width: 100%
                         &:before
@@ -200,7 +198,7 @@ body
                             position: absolute
                             left: 0
                             bottom: -1px
-                            background-color: $light
+                            background-color: $dark
                             height: 1px
                             width: 0
                             @include transition(all .5s ease-in-out)

@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { IntegrationService } from '../services/integration.service';
 import { Observable } from 'rxjs';
-import anime from 'animejs/lib/anime.es.js';
 declare var particlesJS: any;
 
 @Component({
@@ -29,23 +28,7 @@ export class HomeComponent implements OnInit {
 
     this.showPageData(this.page)
 
-    let textWrapper = document.querySelector('.title .letters');
-    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-    
-    setTimeout(() => {
-      this.state = true;
-      anime.timeline({loop: false})
-      .add({
-        targets: '.title .letter',
-        translateY: ["2.5em", 0],
-        translateX: ["0.5em", 0],
-        translateZ: 0,
-        rotateZ: [90, 0],
-        duration: 750,
-        easing: "easeOutExpo",
-        delay: (el, i) => 10 * i
-      })
-    },1500)
+    this.state = true;
   }
  
 
