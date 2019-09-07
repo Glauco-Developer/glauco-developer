@@ -34,7 +34,7 @@
                 width: 90%
         p
             font-size: 24px
-            line-height: 40px
+            line-height: 45px
             font-weight: 300
             opacity: 0
             @include transform(translateX(-20px))
@@ -144,7 +144,7 @@
                             @include animation(paragraph 1s 1s linear forwards)
                 @for $i from 0 to 10
                     li:nth-child(#{$i})
-                        transition-delay: (($i * .5s))
+                        transition-delay: (($i * .10s))
                 li
                     position: relative
                     display: block
@@ -203,7 +203,7 @@
         margin: 0 auto
         @for $i from 0 to 10
             figure:nth-child(#{$i})
-                transition-delay: (($i * .10s))
+                transition-delay: (($i * .30s))
         @media screen and (max-width: 600px)
             flex-direction: column
         &.skills
