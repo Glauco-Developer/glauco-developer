@@ -10,60 +10,79 @@ body
             opacity: 1
             @include transition(all .5s 1s ease-in-out)
             @include transform(translate(-50%,-50%))
-.copy
-    position: absolute
-    z-index: 2
-    width: 80%
-    max-width: 790px
-    left: 50%
-    top: 50%
-    text-align: center
-    margin: 0
-    padding: 0
-    opacity: 0
-    font-family: $ms
-    color: $light
-    @include transform(translate(-50%,-40%))
-    @include transition(all .5s ease-in-out)
-    @media screen and (max-width: 700px)
-        font-style: normal
-    &.in
-        opacity: 1
-        @include transform(translate(-50%,-50%))
-    .title
-        position: relative
-        font-weight: 700
+.wrap-home
+    position: fixed
+    width: 100%
+    height: 100%
+    &:before
+        content: ''
+        position: fixed
+        left: 0
+        top: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+        opacity: .2
+        background-image: url('../../assets/images/glauco.jpg')
+        background-size: 60%
+        background-repeat: no-repeat
+        background-position: top center
+        @media screen and (max-width: 768px)
+            background-size: cover
+    .copy
+        position: absolute
+        z-index: 2
+        width: 80%
+        max-width: 790px
+        left: 50%
+        top: 50%
+        text-align: center
         margin: 0
-        text-transform: uppercase
-        font-size: 37px
-        line-height: 50px
-        @media screen and (max-width: 600px)
-            font-size: 26px
-            line-height: 40px
-            text-align: left
-    h2
-        position: relative
-        font-size: 16px
-        font-weight: 200
-        color: rgba(0,0,0,0)
+        padding: 0
         opacity: 0
-        display: inline-block
-        @include transition(color 0s 1.4s)
-        @media screen and (max-width: 600px)
-            text-align: left
-            font-size: 16px
-            line-height: 30px
-        &:before
-            content: ''
-            position: absolute
-            left: 0
-            top: 0
-            height: 100%
-            width: 100%
-            background-color: #252627
-            @include transform(scale(0,1))
+        font-family: $ms
+        color: $light
+        @include transform(translate(-50%,-40%))
+        @include transition(all .5s ease-in-out)
+        @media screen and (max-width: 700px)
+            font-style: normal
         &.in
             opacity: 1
-            color: #bbbbbb
+            @include transform(translate(-50%,-50%))
+        .title
+            position: relative
+            font-weight: 700
+            margin: 0
+            text-transform: uppercase
+            font-size: 37px
+            line-height: 50px
+            @media screen and (max-width: 600px)
+                font-size: 26px
+                line-height: 40px
+                text-align: left
+        h2
+            position: relative
+            font-size: 16px
+            font-weight: 200
+            color: rgba(0,0,0,0)
+            opacity: 0
+            display: inline-block
+            @include transition(color 0s 1.4s)
+            @media screen and (max-width: 600px)
+                text-align: left
+                font-size: 16px
+                line-height: 30px
             &:before
-                @include animation(stripeTxt .6s 1s ease forwards)
+                content: ''
+                position: absolute
+                left: 0
+                top: 0
+                height: 100%
+                width: 100%
+                background-color: #252627
+                @include transform(scale(0,1))
+            &.in
+                opacity: 1
+                color: #bbbbbb
+                &:before
+                    @include animation(stripeTxt .6s 1s ease forwards)
